@@ -119,7 +119,8 @@ class LoginState extends State<LoginDemo> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => HomeDemo(),
+                                  builder: (context) =>
+                                      HomeDemo(sEmail, sPassword),
                                 ));
                           } else {}
                         },
