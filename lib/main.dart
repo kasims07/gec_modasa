@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:gec_modasa/count_example.dart';
 import 'package:gec_modasa/home.dart';
+import 'package:gec_modasa/home_screen.dart';
+import 'package:gec_modasa/provider/count_provider.dart';
+import 'package:gec_modasa/stesfull_widget.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,11 +14,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement buildr
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginDemo(),
-    );
+    return ChangeNotifierProvider(
+        create: (_) => CountProvider(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: CountExample(),
+        ));
   }
 }
 
@@ -31,7 +37,7 @@ class LoginState extends State<LoginDemo> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-          title: Text(
+          title: const Text(
             'Login Form',
             style: TextStyle(
                 color: Colors.black,
@@ -63,7 +69,7 @@ class LoginState extends State<LoginDemo> {
                             borderRadius: BorderRadius.circular(5)),
                         labelText: "Email id",
                         hintText: "Enter Email id",
-                        prefixIcon: Icon(Icons.email),
+                        prefixIcon: const Icon(Icons.email),
                       ),
                       validator: (emailvalue) {
                         if (emailvalue!.isEmpty) {
@@ -89,7 +95,7 @@ class LoginState extends State<LoginDemo> {
                             borderRadius: BorderRadius.circular(5)),
                         labelText: "Password",
                         hintText: "Enter your password",
-                        prefixIcon: Icon(Icons.lock),
+                        prefixIcon: const Icon(Icons.lock),
                       ),
                       validator: (passwordvalue) {
                         if (passwordvalue!.isEmpty) {
@@ -124,7 +130,7 @@ class LoginState extends State<LoginDemo> {
                                 ));
                           } else {}
                         },
-                        child: Text(
+                        child: const Text(
                           'Login',
                           style: TextStyle(
                               color: Colors.white,
